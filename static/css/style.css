@@ -1,0 +1,231 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #1d1c1c;
+  color: #e2e0e0;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ---- layout ---- */
+.top {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 680px) {
+  .top { grid-template-columns: 1fr; }
+}
+
+/* ---- hero ---- */
+
+
+h1 {
+  margin-top: 70px;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.accent { color: #473ead; }
+
+.left > p {
+  margin-top: 25px;
+  font-size: 15px;
+  color: #c5c1c1;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+
+}
+
+/* ---- buttons ---- */
+.btns {
+  margin-top: 50px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background: #473ead;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #3C3489; }
+
+.btn-outline {
+  background: transparent;
+  color: #1a1a2e;
+  border: 1px solid #d0ceee;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn-outline:hover { background: #eeedfe; }
+
+/* ---- gestures ---- */
+.gestures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.gesture-card {
+  background: #1d1c1c;
+  border: 1px solid #e8e7f5;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gesture-card .icon { font-size: 20px; min-width: 28px; text-align: center; }
+.gesture-card .name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.gesture-card .desc { font-size: 11px; color: #dfdfe2; }
+
+/* ---- leaderboard ---- */
+.lb-card {
+  background: #1d1c1c;
+  border: 1px solid #e8e7f5;
+  border-radius: 12px;
+  overflow: hidden;
+  position: sticky;
+  top: 10rem;
+
+
+
+
+}
+
+.lb-head {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e8e7f5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lb-icon { font-size: 16px; }
+.lb-head h2 { font-size: 15px; font-weight: 600; }
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 30px 1fr 64px;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #f0eff8;
+  font-size: 13px;
+  gap: 6px;
+}
+.lb-row:last-child { border-bottom: none; }
+
+.lb-row.header {
+  font-size: 11px;
+  color: #6b6b8a;
+  font-weight: 600;
+  background: #1d1c1c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.right { text-align: right; }
+
+.rank { font-weight: 600; font-size: 14px; }
+
+.player { display: flex; align-items: center; gap: 8px; }
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.player-name { font-size: 13px; font-weight: 500; }
+.time-val { font-size: 12px; color: #6b6b8a; text-align: right; }
+
+.lb-empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #6b6b8a;
+  font-size: 13px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  z-index: 999;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  width: 350px;
+  background: #1d1c1c;
+  border: 1px solid #e8e7f5;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.modal-card input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+
+  background: #111;
+  color: white;
+
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+.modal-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid #555;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
